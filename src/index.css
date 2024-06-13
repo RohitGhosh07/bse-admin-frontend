@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.ticker {
+    display: flex;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+  
+  @keyframes ticker {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  /* Custom CSS for specific top shadow */
+  .bottomNavbarShadow::before {
+    content: '';
+    position: absolute;
+    top: -32px;  /* Start the shadow a bit higher */
+    left: 0;
+    right: 0;
+    height: 29px;  /* Increased height for a smoother gradient */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    filter: blur(2px);
+  }
+  @keyframes scale-in {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .checkmark-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+  }
+  
+  .checkmark-svg {
+    width: 100px;
+    height: 100px;
+    animation: scale-in 0.5s ease forwards;
+  }
+  
+  .checkmark-circle {
+    fill: #FFF;
+    stroke: #4CAF50;
+    stroke-width: 2;
+  }
+  
+  .checkmark-check {
+    fill: none;
+    stroke: #4CAF50;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards 0.2s;
+  }
+  
