@@ -117,9 +117,13 @@ const OrdersScreen = () => {
                         {/* Container to wrap the button and card */}
                         <div className="flex flex-col items-end w-full max-w-6xl">
 
-                            {/* "Create order" button */}
-                            <button className="mb-4 px-6 py-2 bg-red-900 text-white rounded-md self-end">Create orders</button>
+                            <div>
+                                {/* "Create order" button */}
+                                <button className="mb-4 px-6 py-2 bg-red-900 border-2 border-red-900 text-white rounded-md self-end">Create orders</button>
 
+                                {/* "Add Customer" button */}
+                                <button className="mb-4 ml-2 px-6 py-2 border-2 border-red-900 text-black rounded-md self-end bg-transparent">Add Customer</button>
+                            </div>
                             {/* Card */}
                             <div className="bg-white p-4 sm:p-8 shadow-md rounded-md w-full">
                                 <label htmlFor="Toggle3" className="inline-flex items-center p-1 rounded-xl cursor-pointer dark:text-gray-100">
@@ -163,10 +167,10 @@ const OrdersScreen = () => {
                                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOFQwxZFXqROAIRM6IRJrkAAmdvEdBV_tJA&s" alt="Restaurant" className="h-20" />
                                                         </td>
                                                         <td className="px-4 py-2 border-b">{rowIndex + 8}</td>
-                                                        <td className="px-4 py-2 border-b">In Progress</td>
-                                                        <td className="px-4 py-2 border-b">Member</td>
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">In Progress</div></td>                                      
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">Member</div></td>                                                   
                                                         <td className="px-4 py-2 border-b">123456</td>
-                                                        <td className="px-4 py-2 border-b">20 mins</td>
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">20 min</div></td>                                                   
                                                         <td className="px-4 py-2 border-b">{9 * (8 + rowIndex)}</td>
                                                         <td className="px-4 py-2 border-b">INR 450.00</td>
                                                         <td className="px-4 py-2 border-b">
@@ -309,7 +313,7 @@ const OrdersScreen = () => {
                                                     <td className="px-4 py-2 border-b">Order #{rowIndex + 1}</td>
                                                     <td className="px-4 py-2 border-b">{9 * (8 + rowIndex)}</td>
                                                     <td className="px-4 py-2 border-b">INR 450.00</td>
-                                                    <td className="px-4 py-2 border-b">
+                                                    <td className="px-4 py-2 border-b" onClick={isTableView}>
                                                         <svg width="39" height="20" viewBox="0 0 39 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M23.5455 1L37 10M37 10L23.5455 19M37 10H0" stroke="black" stroke-width="2" />
                                                         </svg>
