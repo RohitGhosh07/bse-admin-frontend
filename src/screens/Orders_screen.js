@@ -62,7 +62,7 @@ const OrdersScreen = () => {
             </div>
             <div className="flex h-screen bg-gray-200">
                 {/* Sidebar */}
-                <SideMenu/>
+                <SideMenu />
 
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col relative">
@@ -82,25 +82,42 @@ const OrdersScreen = () => {
 
                             <div>
                                 {/* "Create order" button */}
-                                <button className="mb-4 px-6 py-2 bg-red-900 border-2 border-red-900 text-white rounded-md self-end">Create orders</button>
+                                {/* <button className="mb-4 px-6 py-2 bg-red-900 border-2 border-red-900 text-white rounded-md self-end">Create orders</button> */}
 
                                 {/* "Add Customer" button */}
-                                <button className="mb-4 ml-2 px-6 py-2 border-2 border-red-900 text-black rounded-md self-end bg-transparent">Add Customer</button>
+                                <button className="mb-4 ml-2 px-10 py-1 border-2 border-red-900 text-black rounded-lg self-end bg-transparent">Add Guest</button>
                             </div>
                             {/* Card */}
                             <div className="bg-white p-4 sm:p-8 shadow-md rounded-md w-full">
-                                <label htmlFor="Toggle3" className="inline-flex items-center p-1 rounded-xl cursor-pointer dark:text-gray-100">
-                                    <input
-                                        id="Toggle3"
-                                        type="checkbox"
-                                        className="hidden peer"
-                                        checked={isTableView}
-                                        onChange={toggleView}
-                                    />
-                                    <span className="px-4 sm:px-8 py-1 rounded-l-md border dark:border-gray-900 dark:bg-white text-black peer-checked:dark:bg-gray-900 peer-checked:text-white">Order View</span>
-                                    <span className="px-4 sm:px-8 py-1 rounded-r-md border dark:border-gray-900 dark:bg-gray-900 text-white peer-checked:dark:bg-white peer-checked:text-black">Table View</span>
-                                </label>
+                                <div className="flex justify-between">
+                                    <label htmlFor="Toggle3" className="inline-flex items-center p-1 rounded-xl cursor-pointer dark:text-gray-100">
+                                        <input
+                                            id="Toggle3"
+                                            type="checkbox"
+                                            className="hidden peer"
+                                            checked={isTableView}
+                                            onChange={toggleView}
+                                        />
+                                        <span className="px-4 sm:px-8 py-1 rounded-l-md border dark:border-gray-900 dark:bg-white text-black peer-checked:dark:bg-gray-900 peer-checked:text-white">Order View</span>
+                                        <span className="px-4 sm:px-8 py-1 rounded-r-md border dark:border-gray-900 dark:bg-gray-900 text-white peer-checked:dark:bg-white peer-checked:text-black">Table View</span>
+                                    </label>
+                                    {/* Three small rounded squares with text */}
+                                    <div className="flex items-center justify-end mt-2">
+                                        <div className="flex items-center px-2">
+                                            <div className="rounded-[3px] h-3 w-3 bg-white border border-gray-300 mr-1"></div>
+                                            <span className="text-xs">Available</span>
+                                        </div>
+                                        <div className="flex items-center ml-2  px-2">
+                                            <div className="rounded-[3px] h-3 w-3 bg-gray-300 border-2 border-black mr-1"></div>
+                                            <span className="text-xs">Selected</span>
+                                        </div>
+                                        <div className="flex items-center ml-2  px-2">
+                                            <div className="rounded-[3px] h-3 w-3 bg-gray-300 mr-1"></div>
+                                            <span className="text-xs">Occupied</span>
+                                        </div>
+                                    </div>
 
+                                </div>
                                 {/* Divider */}
                                 <hr className="my-4 border-gray-300" />
 
@@ -130,10 +147,10 @@ const OrdersScreen = () => {
                                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOFQwxZFXqROAIRM6IRJrkAAmdvEdBV_tJA&s" alt="Restaurant" className="h-20" />
                                                         </td>
                                                         <td className="px-4 py-2 border-b">{rowIndex + 8}</td>
-                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">In Progress</div></td>                                      
-                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">Member</div></td>                                                   
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">In Progress</div></td>
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">Member</div></td>
                                                         <td className="px-4 py-2 border-b">123456</td>
-                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">20 min</div></td>                                                   
+                                                        <td className="px-4 py-2 border-b "><div className="px-2 bg-gray-200 rounded-xl text-center">20 min</div></td>
                                                         <td className="px-4 py-2 border-b">{9 * (8 + rowIndex)}</td>
                                                         <td className="px-4 py-2 border-b">INR 450.00</td>
                                                         <td className="px-4 py-2 border-b">

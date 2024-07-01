@@ -63,10 +63,13 @@ const Market_screen = () => {
                         {/* Top Items in Action */}
                         <div className="mb-4">
                             <div className="flex items-center mb-2">
-                                <h2 className="text-3xl font-semibold mr-2 p-2">Top Items in Action</h2>
-                                <FaPen className="cursor-pointer text-gray-500" />
+                                <h2 className="text-3xl font-bold mr-2 p-2">Top Items in Action</h2>
+                                <div className="flex items-center mt-2">
+                                    <FaPen className="cursor-pointer text-gray-500" />
                                 </div>
-                            <div className="bg-white p-4 rounded-lg shadow-md">
+                            </div>
+
+                            <div className="bg-white p-4 rounded-3xl shadow-md">
                                 <table className="w-full text-left table-fixed">
                                     <thead>
                                         <tr>
