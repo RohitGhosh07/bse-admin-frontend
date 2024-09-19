@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUserCircle, FaBars, FaPen } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 const NavBar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
