@@ -93,12 +93,12 @@ const OrdersScreen = () => {
                                 <div className="flex justify-between items-center mb-4">
                                     {/* Left-aligned buttons */}
                                     <div className="flex items-center">
-                                        {/* <button
+                                        <button
                                             onClick={() => handleViewChange('order')}
                                             className={`px-4 sm:px-8 py-1 border text-sm rounded-l-md ${view === 'order' ? 'bg-black text-white' : 'bg-white text-black border-black'}`}
                                         >
                                             Order View
-                                        </button> */}
+                                        </button>
                                         {/* <button
                                             onClick={() => handleViewChange('table')}
                                             className={`px-4 sm:px-8 py-1 border text-sm ${view === 'table' ? 'bg-black text-white' : 'bg-white text-black border-black'}`}

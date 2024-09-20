@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaPen } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderBrandDetailed = ({ selectedOrderId, selectedBrandId, orderItems, handleCloseSidebar }) => {
     const [brandDetails, setBrandDetails] = useState(null);
@@ -76,22 +78,28 @@ const OrderBrandDetailed = ({ selectedOrderId, selectedBrandId, orderItems, hand
 
             const result = await response.json();
             console.log('Status update response:', result);
-            // You can handle additional logic here (e.g., showing a success message)
+
+            // Show success notification
+            toast.success(`Order ${orderId} completed successfully!`);
         } catch (error) {
             console.error('Error updating status:', error);
+            // Show error notification
+            toast.error('Failed to complete the order.');
         }
     };
 
-    // Handle dropdown change
+
+    // Handle dropdown change and send the correct item ID
     const handleStatusChange = (event, itemId) => {
         const newStatus = event.target.value;
         setStatus(newStatus);
 
         if (newStatus === 'Completed') {
-            updateStatus(selectedOrderId, itemId); // Call the API to update the status
+            updateStatus(selectedOrderId, [itemId]); // Send itemId as an array
             console.log(`Updating status for order ${selectedOrderId} and item ${itemId} to Completed`);
         }
     };
+
 
     if (selectedOrderId === null || selectedBrandId === null || !brandDetails) return null;
 
@@ -119,10 +127,8 @@ const OrderBrandDetailed = ({ selectedOrderId, selectedBrandId, orderItems, hand
                         </div>
                         <div className="flex-1 flex items-center justify-end">
                             <div className="flex w-2/3 px-2">
-                                <select value={status} onChange={(e) => handleStatusChange(e, itemDetails.id)} className="w-full px-4 py-2 border rounded-md">
-                                    <option value="In Progress">In Progress</option>
-                                    <option value="Completed">Completed</option>
-                                </select>
+
+
                             </div>
                             <FaPen className="w-6 h-6 text-gray-600 ml-2" />
                         </div>
@@ -155,9 +161,16 @@ const OrderBrandDetailed = ({ selectedOrderId, selectedBrandId, orderItems, hand
                                             <td className="px-4 py-2 border-b text-center">
                                                 INR {itemDetail ? itemDetail.base_price : 'Loading...'}
                                             </td>
+                                            <td className="px-4 py-2 border-b text-center">
+                                                <select value={status} onChange={(e) => handleStatusChange(e, item.item_id)} className="w-full px-4 py-2 border rounded-md">
+                                                    <option value="In Progress">In Progress</option>
+                                                    <option value="Completed">Completed</option>
+                                                </select>
+                                            </td>
                                         </tr>
                                     );
                                 })}
+
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -177,6 +190,18 @@ const OrderBrandDetailed = ({ selectedOrderId, selectedBrandId, orderItems, hand
                         </table>
                     </div>
                 </div>
+                <ToastContainer
+                    position="bottom-center"  // You can use "bottom-right" or "bottom-left" as well
+                    autoClose={5000}  // Auto close after 5 seconds (optional)
+                    hideProgressBar={false}  // Show or hide progress bar (optional)
+                    newestOnTop={false}  // Whether to display newest toast on top
+                    closeOnClick
+                    rtl={false}  // Set to true for RTL support
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+
             </div>
         </>
     );

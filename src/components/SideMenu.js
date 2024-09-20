@@ -41,10 +41,10 @@ const SideMenu = () => {
                             <TbFileInvoice className="mr-3 w-8 h-12" />
                             Orders
                         </button>
-                        {/* <button className={`flex items-center px-2 text-xl hover:bg-gray-700 hover:text-white rounded-r-xl ${activeMenu === 'market' ? 'bg-red-900 text-white' : ''}`} onClick={() => handleMenuClick('market')}>
+                        <button className={`flex items-center px-2 text-xl hover:bg-gray-700 hover:text-white rounded-r-xl ${activeMenu === 'market' ? 'bg-red-900 text-white' : ''}`} onClick={() => handleMenuClick('market')}>
                             <SlGraph className="mr-3 w-8 h-12" />
                             Market
-                        </button> */}
+                        </button>
                         <button className={`flex items-center px-2 text-xl hover:bg-gray-700 hover:text-white rounded-r-xl ${activeMenu === 'items' ? 'bg-red-900 text-white' : ''}`} onClick={() => handleMenuClick('items')}>
                             <HiOutlineClipboardList className="mr-3 w-8 h-12" />
                             Items
